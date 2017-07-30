@@ -1,0 +1,6 @@
+<h2 class="article-title">Article Titles:</h2>
+<div>
+  <ul>
+    <li *ngFor="let article of data" (click)= "viewDetails(article)"><button>{{article.title}}</button></li>
+  </ul>
+</div>

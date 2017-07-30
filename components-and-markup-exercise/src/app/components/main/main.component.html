@@ -1,0 +1,31 @@
+<index-page 
+  (sendDescriptionToMain)="descriptionReceived($event)"
+  (sendPhotoToMain)="photoReceived($event)" 
+></index-page>
+<div>
+  <label for="background-color-selector">Select background color</label>
+  <select (change)="selectBackgroundColor($event.target.value)" id="background-color-selector">
+    <option value="#f4e842">Yellow</option>
+    <option value="#4162f4">Blue</option>
+    <option value="#6df441">Green Green</option>    
+  </select>
+  <label for="font-color-selector">Select font color</label>
+  <select (change)="selectFontColor($event.target.value)" id="font-color-selector">
+    <option value="yellow">Yellow</option>
+    <option value="green">Green</option>
+    <option value="orange">Orange</option>
+    <option value="pink">Pink</option>    
+    <option value="black">Black</option>    
+  </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <label>Font Size:</label>
+  <button (click)="increaseFont()">+</button>&nbsp;<button (click)="decreaseFont()">-</button>
+</div>
+<div [style.background-color]="backgroundColor" class="main-wrapper" [style.font-size]="fontSize + 'px'">
+  <img src={{photoUrl}} alt="photo" [hidden]="isShowPhoto"/>
+  <br /> 
+  <button (click)="showHidePhoto()">{{showHidePhotoBtn}}</button>
+  <p [style.color]="fontColor">{{description}}<p>
+  <br />
+  <button (click)="showMoreText()" *ngIf="!isDescriptionTotal">Show more</button>
+  <br />
+</div>
